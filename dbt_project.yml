@@ -1,0 +1,48 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'gadslh'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'reach'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"] 
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+        gadslh:
+                production: 
+                        materialized: table
+                staging:
+                        materialized: ephemeral
+        vars: 
+                t_campaignStats: 'reach-data-platform.mcc.p_CampaignStats_9899638841'
+                t_campaign: 'reach-data-platform.mcc.p_Campaign_9899638841'
+                t_ads: 'reach-data-platform.mcc.p_Campaign_9899638841'
+                t_adStats: 'reach-data-platform.mcc.p_Ad_9899638841'
+                t_campaignConv: 'reach-data-platform.mcc.p_CampaignConversionStats_9899638841'
+                t_adGroupStats: 'reach-data-platform.mcc.p_AdGroupStats_9899638841'
+                t_adGroup: 'reach-data-platform.mcc.p_AdGroup_9899638841'
+                t_adGroupConv: 'reach-data-platform.mcc.p_AdGroupConversionStats_9899638841'
+                convName1: 'Calls from ads'
+                convName2: 'Telefone (Todos os dados do website)'
+                convName3: 'Submissão de Formulário'
+                
+  
